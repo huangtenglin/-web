@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN" id="html">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>购物街商城</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/ant-design-vue/3.2.20/antd.min.css">
+  <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    function remSize () {
+      // 获取移动设备的宽度 
+      var deviceWidth = document.documentElement.clientWidth || window.innerWidth
+      // 设置最大宽度 (需要限制宽度时添加)
+      if (deviceWidth >= 750) {
+        deviceWidth = 750
+      }
+      // 设置最小宽度 (需要限制宽度时添加)
+      if (deviceWidth <= 320) {
+        deviceWidth = 320
+      }
+      document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
+      // 在width=375px时 10px = 0.1rem 在不限制宽度时width:100%; 等同于 width:7.5rem;
+      document.querySelector('body').style.fontSize = 0.32 + 'rem'
+    }
+
+    remSize()
+    // 窗口发生变化时调用
+    window.onresize = () => {
+      remSize()
+    }
+  </script>
+</body>
+
+</html>
